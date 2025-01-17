@@ -25,20 +25,20 @@ const RIGHT_LEG = (
     <div className='h-2 w-12 bg-black right-[-40px] top-[136px] absolute rotate-[60deg] origin-bottom-left'></div>
 );
 
-const HangManDrawing = () => {
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
+
+type HangManDrawingProps = {
+    numberofGuesses: number;
+}
+
+const HangManDrawing = ({ numberofGuesses }: HangManDrawingProps) => {
     return (
         <div className='relative scale-75'>
-            {HEAD}
-            {BODY}
-            {LEFT_ARM}
-            {RIGHT_ARM}
-            {LEFT_LEG}
-            {RIGHT_LEG}
+            {BODY_PARTS.slice(0, numberofGuesses)}
             <div className='h-10 w-2 bg-black absolute right-0 top-0'></div>
             <div className='h-2 w-44 bg-black ml-28'></div>
             <div className='w-2 h-80 bg-black ml-28'></div>
             <div className='w-60 h-2 bg-black'></div>
-
         </div>
     );
 };
